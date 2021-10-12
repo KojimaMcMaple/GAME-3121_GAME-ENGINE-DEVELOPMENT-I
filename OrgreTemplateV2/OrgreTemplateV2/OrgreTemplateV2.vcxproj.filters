@@ -15,47 +15,70 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="week1-1-bootStrap.cpp">
+    <ClCompile Include="Week3-4-AddMovingToScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week1-2-simpleSample.cpp">
+    <ClCompile Include="Week3-5-FrameListenerDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week1-3-Transformartions.cpp">
+    <ClCompile Include="Week3-6-FrameIndependentDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week1-4-LookAtDemo.cpp">
+    <ClCompile Include="Week3-7-InteractiveAnimationDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week1-5-multipleViewPorts.cpp">
+    <ClCompile Include="week5-1-EulerAnglesDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-0-bootStrap.cpp">
+    <ClCompile Include="week5-2-QuaternionDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-1-simpleSample.cpp">
+    <ClCompile Include="Week5-3-TrayDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-2-addAnotherEntity.cpp">
+    <ClCompile Include="Week5-4-TrayDemo2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-3-sceneNode.cpp">
+    <ClCompile Include="week5-5-TrayButtonDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-4-camera.cpp">
+    <ClCompile Include="week5-6-TrayFrameStatsDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-5-mesh.cpp">
+    <ClCompile Include="week5-7-PrefabTypeDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-6-spotlight.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-7-directionalLight.cpp">
+    <ClCompile Include="Ball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="week2-8-pointLight.cpp">
+    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Paddle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main - Copy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ball.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Paddle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
