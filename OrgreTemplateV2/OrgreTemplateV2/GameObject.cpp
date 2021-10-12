@@ -34,5 +34,5 @@ void GameObject::ResetDir()
 
 void GameObject::Move(const Ogre::FrameEvent& evt)
 {
-	node_->translate(dir_.normalisedCopy() * speed_ * evt.timeSinceLastFrame);
+	node_->translate(dir_ * speed_ * evt.timeSinceLastFrame);
 }

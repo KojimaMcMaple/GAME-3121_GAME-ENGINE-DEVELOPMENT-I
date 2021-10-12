@@ -63,14 +63,13 @@ void Game::setup()
     mTrayMgr->showFrameStats(TL_BOTTOMLEFT);
     //mTrayMgr->toggleAdvancedFrameStats();
 
-    mInfoLabel = mTrayMgr->createLabel(TL_TOP, "TInfo", "My Game Engine", 350);
+    //mInfoLabel = mTrayMgr->createLabel(TL_TOP, "TInfo", "My Game Engine", 350);
     mScoreLabel = mTrayMgr->createLabel(TL_TOPLEFT, "Score", "Score:", 150);
-    mScore = mTrayMgr->createLabel(TL_TOPLEFT, "score", "0", 150);
+    mScore = mTrayMgr->createLabel(TL_TOPLEFT, "score", Ogre::StringConverter::toString(score_), 150);
     mTpuLabel = mTrayMgr->createLabel(TL_TOPRIGHT, "Time/Update", "Time/Update:", 150);
     mTpu = mTrayMgr->createLabel(TL_TOPRIGHT, "tpu", "0", 150);
     mLivesLabel = mTrayMgr->createLabel(TL_TOPLEFT, "Lives", "Lives:", 150);
     mLives = mTrayMgr->createLabel(TL_TOPLEFT, "lives", "5", 150);
-
     //// a friendly reminder
     //StringVector names;
     //names.push_back("Help");
@@ -78,11 +77,13 @@ void Game::setup()
 
     Ogre::Entity* ballEntity = scnMgr->createEntity(SceneManager::PrefabType::PT_SPHERE);
     ballNode = new Ball();
-    ballNode->SetSpeed(20);
+    ballNode->SetSpeed(80);
     //ballNode->SetDir(Ogre::Vector3(0, -1, 0));
-    ballNode->SetDir(Ogre::Vector3(0.5, -0.5, 0));
+    ballNode->SetDir(Ogre::Vector3(Ogre::Math::RangeRandom(-0.7, 0.7), 
+                                    Ogre::Math::RangeRandom(-1, -0.5), 
+                                    0).normalisedCopy());
     ballNode->SetNode(scnMgr->getRootSceneNode()->createChildSceneNode());
-    ballNode->GetNode()->setPosition(0, 70, 0);
+    ballNode->GetNode()->setPosition(0, 100, 0);
     ballNode->GetNode()->setScale(0.1f, 0.1f, 0.1f);
     ballNode->GetNode()->attachObject(ballEntity);
 
@@ -91,10 +92,10 @@ void Game::setup()
     paddleNode->SetSpeed(300);
     paddleNode->SetNode(scnMgr->getRootSceneNode()->createChildSceneNode());
     paddleNode->GetNode()->setPosition(0, -10, 0);
-    paddleNode->GetNode()->setScale(0.2f, 0.05f, 1.0f);
+    paddleNode->GetNode()->setScale(0.3f, 0.03f, 1.0f);
     paddleNode->GetNode()->attachObject(paddleEntity);
 
-    scnMgr->showBoundingBoxes(true);
+    scnMgr->showBoundingBoxes(false);
 
     createFrameListener();
 }
@@ -127,6 +128,9 @@ bool Game::keyPressed(const KeyboardEvent& evt)
 
 void Game::createFrameListener()
 {
-    Ogre::FrameListener* frameListener = new GameFrameListener(cam, paddleNode, ballNode);
+    Ogre::FrameListener* frameListener = new GameFrameListener(cam, paddleNode, ballNode,
+        mScore, score_,
+        mTpu, time_,
+        mLives, lives_);
     mRoot->addFrameListener(frameListener);
 }

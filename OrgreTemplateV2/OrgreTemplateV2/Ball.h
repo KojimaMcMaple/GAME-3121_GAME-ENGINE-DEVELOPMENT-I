@@ -26,7 +26,9 @@ public:
     //void SetDir(Ogre::Vector3 value);
     //void ResetDir();
     void RefectX();
+    void RefectX(float range);
     void RefectY();
+    void RefectY(float range);
 
     //void Move(const Ogre::FrameEvent& evt);
 };
