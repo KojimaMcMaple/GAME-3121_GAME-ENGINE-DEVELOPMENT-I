@@ -16,7 +16,8 @@ private:
     Paddle* paddle_node_;
     Ball* ball_node_;
     Camera* cam_;
-    bool is_intersecting_;
+    bool is_intersecting_ = false;
+    bool is_bound_reflecting_ = false;
     OgreBites::Label* mScore;
     int* score_;
     OgreBites::Label* mTpu;
@@ -57,14 +58,23 @@ public:
         //printf(">>> %f\n", ball_screen_pos.x);
         if (ball_screen_pos.x >= 1 || ball_screen_pos.x <= -1)
         {
-            ball_node_->RefectX();
+            if (!is_bound_reflecting_)
+            {
+                is_bound_reflecting_ = true;
+                ball_node_->RefectX();
+            }
         }
         else if (ball_screen_pos.y >= 1)
         {
-            ball_node_->RefectY();
+            if (!is_bound_reflecting_)
+            {
+                is_bound_reflecting_ = true;
+                ball_node_->RefectY();
+            }
         }
         else if (ball_screen_pos.y <= -1) //DEATH
         {
+            is_bound_reflecting_ = false;
             --(*lives_);
             mLives->setCaption(Ogre::StringConverter::toString(*lives_));
             
@@ -72,6 +82,10 @@ public:
             ball_node_->SetDir(Ogre::Vector3(Ogre::Math::RangeRandom(-0.7, 0.7),
                                 Ogre::Math::RangeRandom(-1, -0.5),
                                 0).normalisedCopy());
+        }
+        else
+        {
+            is_bound_reflecting_ = false;
         }
 
         if (ball_node_->GetNode()->_getWorldAABB().intersects(paddle_node_->GetNode()->_getWorldAABB()))
